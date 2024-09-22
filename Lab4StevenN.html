@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <link rel="stylesheet" href="Lab4StevenN.css">
+    </head>
+
+    <body>
+        <h1 id="labTitle">INST377 - Lab 4</h1>
+
+        <!-- left containers -->
+
+        <div class="leftTop">
+            <form name="fullName" id="fullName" onsubmit="return(checkName())">
+                <label>Name: </label>
+                <input type="text" name="name" id="firstName">
+                <input type="submit" value="Alert Me!">
+                <script type="text/javascript">
+                    function checkName(){
+                        var userName = document.fullName.firstName.value;
+                        if (document.fullName.firstName.value===""){
+                            alert("Enter a Name");
+                            return false;
+                        }
+                        else{
+                            alert("Hi " + userName)
+                            return True;
+                        }
+                    }
+                </script>
+            </form>
+        </div>
+
+        <div class="rightTop" >
+            <button onclick="coloring()">Change Color</button>
+            <script type="text/javascript">
+                function coloring(){
+                    if(document.body.style.backgroundColor==="rgb(114, 171, 240)"){
+                        const t = document.body.style.backgroundColor='green';
+                    }
+                    else{
+                        const t = document.body.style.backgroundColor='rgb(114, 171, 240)';
+                    }
+                }
+            </script>
+        </div>
+
+        <br><br><br>
+        
+        <div class="leftBottom">
+            <form name="textTest" onsubmit="return(textValidation())">
+                <label for="textTest">Text Tester: </label>
+                <input type="text" id="validateText">
+                <input type="submit" value="Validate Text">
+
+                <script typ="text/javascript">
+                    function textValidation(){
+                        const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                        if(validation.test(document.textTest.validateText.value)){
+                            alert('No special characters plz')
+                            return false
+                        }
+                        return True
+                    }
+
+                </script>
+            </form>
+        </div>
+
+        <div class="rightBottom">
+            <button id='textButton' onclick="addText()">Add Text!</button>
+
+            <script type="text/javascript">
+                function addText(){
+                    document.getElementById("labTitle").innerText+=" - Adding Text";
+                    document.getElementById("textButton").disabled = true;
+                }
+            </script>
+        </div>
+
+    </body>
+</html>
